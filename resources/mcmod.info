@@ -1,0 +1,16 @@
+[
+{
+  "modid": "NSA",
+  "name": "Nanotech Server Addon",
+  "description": "An addon for the nanotech server.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "http://www.mcnanotech.fr",
+  "updateUrl": "",
+  "authors": ["letherman255"],
+  "credits": "Thank to minecraft fore France for their help",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
