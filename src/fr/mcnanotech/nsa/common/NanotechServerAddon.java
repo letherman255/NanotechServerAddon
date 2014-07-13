@@ -30,7 +30,7 @@ public class NanotechServerAddon
 	@Instance(MODID)
 	public static NanotechServerAddon instence;
 
-	@SidedProxy(clientSide = "fr.mcnanotech.NSA.proxy.ClientProxy", serverSide = "fr.mcnanotech.NSA.proxy.CommonProxy")
+	@SidedProxy(clientSide = "fr.mcnanotech.nsa.proxy.ClientProxy", serverSide = "fr.mcnanotech.nsa.proxy.CommonProxy")
 	public static CommonProxy proxy;
 
 	@EventHandler
