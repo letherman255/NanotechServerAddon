@@ -26,6 +26,8 @@ public class NanotechServerAddon
 	public static final String MODID = "NSA";
 	public static boolean isICLoaded;
 	public static Block overworldQuartz;
+	public static Block resourcesWorldPortalFrame;
+	public static Block resourcesWorldPortal;
 
 	@Instance(MODID)
 	public static NanotechServerAddon instence;
@@ -38,7 +40,11 @@ public class NanotechServerAddon
 	{
 		proxy.registerRender();
 		overworldQuartz = new OverWorldQuartz(Material.rock).setBlockName("overWorldQuartz").setHardness(3.0F).setResistance(5.0F).setCreativeTab(CreativeTabs.tabBlock).setBlockTextureName(MODID + ":overWorldQuartz");
+		resourcesWorldPortalFrame = new resourceWorldPortalFrame(Material.iron).setBlockName("resourcesWorldPortalFrame").setHardness(5.0F).setResistance(6.0F).setCreativeTab(CreativeTabs.tabBlock).setBlockTextureName(MODID+":resourcesWorldPortalFrame");
+		resourcesWorldPortal = new ressourceWorldPortal(Material.glass).setBlockName("resourcesWorldPortal").setHardness(5.0F).setResistance(5.0F).setCreativeTab(CreativeTabs.tabBlock).setBlockTextureName(MODID+":resourcesWorldPortal");
 		GameRegistry.registerBlock(overworldQuartz, "overWorldQuartz");
+		GameRegistry.registerBlock(resourcesWorldPortalFrame, "resourcesWorldPortalFrame");
+		GameRegistry.registerBlock(resourcesWorldPortal, "resourcesWorldPortal");
 		isICLoaded = Loader.isModLoaded("IC2");
 	}
 
