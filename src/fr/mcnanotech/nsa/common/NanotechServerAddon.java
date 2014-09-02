@@ -1,14 +1,20 @@
 package fr.mcnanotech.nsa.common;
 
+import fr.mcnanotech.nsa.common.tileentity.TileEntityHyperCrystalizer;
 import fr.mcnanotech.nsa.proxy.CommonProxy;
+import ic2.api.item.IC2Items;
 import ic2.api.recipe.RecipeInputItemStack;
 import ic2.api.recipe.Recipes;
+import ic2.core.IC2;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -26,8 +32,7 @@ public class NanotechServerAddon
 	public static final String MODID = "NSA";
 	public static boolean isICLoaded;
 	public static Block overworldQuartz;
-	public static Block resourcesWorldPortalFrame;
-	public static Block resourcesWorldPortal;
+	public static Block hyperCrystalizer;
 
 	@Instance(MODID)
 	public static NanotechServerAddon instence;
@@ -40,23 +45,22 @@ public class NanotechServerAddon
 	{
 		proxy.registerRender();
 		overworldQuartz = new OverWorldQuartz(Material.rock).setBlockName("overWorldQuartz").setHardness(3.0F).setResistance(5.0F).setCreativeTab(CreativeTabs.tabBlock).setBlockTextureName(MODID + ":overWorldQuartz");
-		resourcesWorldPortalFrame = new resourceWorldPortalFrame(Material.iron).setBlockName("resourcesWorldPortalFrame").setHardness(5.0F).setResistance(6.0F).setCreativeTab(CreativeTabs.tabBlock).setBlockTextureName(MODID+":resourcesWorldPortalFrame");
-		resourcesWorldPortal = new ressourceWorldPortal(Material.glass).setBlockName("resourcesWorldPortal").setHardness(5.0F).setResistance(5.0F).setCreativeTab(CreativeTabs.tabBlock).setBlockTextureName(MODID+":resourcesWorldPortal");
+		hyperCrystalizer = new HyperCrystalizer(Material.iron).setBlockName("hyperCrystalizer").setHardness(3.0F).setResistance(5.0F).setCreativeTab(CreativeTabs.tabRedstone);
 		GameRegistry.registerBlock(overworldQuartz, "overWorldQuartz");
-		GameRegistry.registerBlock(resourcesWorldPortalFrame, "resourcesWorldPortalFrame");
-		GameRegistry.registerBlock(resourcesWorldPortal, "resourcesWorldPortal");
+		GameRegistry.registerBlock(hyperCrystalizer, "hyperCrystalizer");
 		isICLoaded = Loader.isModLoaded("IC2");
 	}
 
 	@EventHandler
 	public void init(FMLInitializationEvent event)
 	{
+		GameRegistry.registerTileEntity(TileEntityHyperCrystalizer.class, MODID + "HyperCrystalizer");
 		GameRegistry.registerWorldGenerator(new WorldGenerator(), 0);
-
 		if(isICLoaded)
 		{
 			this.loadIC2();
 		}
+		GameRegistry.addRecipe(IC2Items.getItem("reactorCoolantSimple"), new Object[]{" X ", "XcX", " X ",'X', IC2Items.getItem("platetin"), 'c', IC2Items.getItem("waterCell")});
 	}
 
 	public void loadIC2()
