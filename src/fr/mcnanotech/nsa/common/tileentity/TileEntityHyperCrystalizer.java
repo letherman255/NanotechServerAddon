@@ -5,33 +5,30 @@ import net.minecraft.tileentity.TileEntity;
 
 public class TileEntityHyperCrystalizer extends TileEntity {
 	
-	private int number;
+	private int value;
 
 	@Override
 	public void readFromNBT(NBTTagCompound compound) {
 
 		super.readFromNBT(compound);
-		this.number=compound.getInteger("Number");
+		this.value=compound.getInteger("value");
 	}
 
 	@Override
 	public void writeToNBT(NBTTagCompound compound) {
 
 		super.writeToNBT(compound);
-		compound.setInteger("Number", this.number);
+		compound.setInteger("value", this.value);
 	}
 
-	public void increase() {
-		this.number ++;
+	public int getValue() {
+		return value;
 	}
 
-	public void decrease() {
-		this.number --;
+	public void setValue(int value) {
+		this.value = value;
 	}
 
-	public int getNumber() {
-		return number;
-	}
 	
 
 }
