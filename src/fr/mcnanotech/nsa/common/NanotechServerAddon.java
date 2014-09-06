@@ -63,7 +63,14 @@ public class NanotechServerAddon
 			this.loadIC2();
 		}
 		GameRegistry.addRecipe(IC2Items.getItem("reactorCoolantSimple"), new Object[]{" X ", "XcX", " X ",'X', IC2Items.getItem("platetin"), 'c', IC2Items.getItem("waterCell")});
-		GameRegistry.addRecipe(new ItemStack(GameRegistry.findItem("appliedenergistics2", "item.ItemMultiMaterial"),1, 1), new Object[]{"YYY", "YXY", "YYY",'Y',(new ItemStack(GameRegistry.findItem("appliedenergistics2", "item.ItemMultiMaterial"),1)), 'X',(new ItemStack(GameRegistry.findItem("IC2", "itemDust2"),1, 2)) });
+		GameRegistry.addRecipe(new ItemStack(GameRegistry.findItem("appliedenergistics2", "item.ItemMultiMaterial"),8, 1), new Object[]{"YYY", "YXY", "YYY",'Y',(new ItemStack(GameRegistry.findItem("appliedenergistics2", "item.ItemMultiMaterial"),1)), 'X',(new ItemStack(GameRegistry.findItem("IC2", "itemDust2"),1, 2)) });
+		GameRegistry.addRecipe(new ItemStack(GameRegistry.findItem("appliedenergistics2", "item.ItemMultiMaterial"),1, 22), new Object[]{"WYW", "YXY", "WYW",'Y',(new ItemStack(GameRegistry.findItem("appliedenergistics2", "item.ItemMultiMaterial"),1 , 5)), 'X',(new ItemStack(Items.gold_ingot,1)),'W',(new ItemStack(Items.redstone, 1)) });
+		GameRegistry.addRecipe(new ItemStack(GameRegistry.findItem("appliedenergistics2", "item.ItemMultiMaterial"),1, 24), new Object[]{"WYW", "YXY", "WYW",'Y',(new ItemStack(GameRegistry.findItem("appliedenergistics2", "item.ItemMultiMaterial"),1 , 5)), 'X',(new ItemStack(Items.diamond,1)),'W',(new ItemStack(Items.redstone, 1)) });
+		GameRegistry.addRecipe(new ItemStack(GameRegistry.findItem("appliedenergistics2", "item.ItemMultiMaterial"),1, 23), new Object[]{"WYW", "YXY", "WYW",'Y',(new ItemStack(GameRegistry.findItem("appliedenergistics2", "item.ItemMultiMaterial"),1 , 5)), 'X',(new ItemStack(Items.quartz,1)),'W',(new ItemStack(Items.redstone, 1)) });
+		
+		GameRegistry.addShapelessRecipe(new ItemStack(GameRegistry.findItem("appliedenergistics2", "item.ItemMultiMaterial"), 2, 7), new Object[]{(new ItemStack(GameRegistry.findItem("appliedenergistics2", "item.ItemMultiMaterial"),8, 1)), (new ItemStack(Items.quartz, 1)), (new ItemStack(Items.redstone, 1))});
+		
+		GameRegistry.addSmelting(new ItemStack(GameRegistry.findItem("appliedenergistics2", "item.ItemMultiMaterial"),1, 1), new ItemStack(GameRegistry.findItem("appliedenergistics2", "item.ItemMultiMaterial"),1, 10), 1);
 		
 		
 	}
