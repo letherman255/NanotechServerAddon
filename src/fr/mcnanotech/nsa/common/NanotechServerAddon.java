@@ -63,7 +63,8 @@ public class NanotechServerAddon
 			this.loadIC2();
 		}
 		GameRegistry.addRecipe(IC2Items.getItem("reactorCoolantSimple"), new Object[]{" X ", "XcX", " X ",'X', IC2Items.getItem("platetin"), 'c', IC2Items.getItem("waterCell")});
-		GameRegistry.addRecipe(new ItemStack(GameRegistry.findItem("appliedenergistics2", "item.ItemMultiMaterial"),1, 1), new Object[]{"   ", " X ", "   ",'X',Blocks.cobblestone});
+		GameRegistry.addRecipe(new ItemStack(GameRegistry.findItem("appliedenergistics2", "item.ItemMultiMaterial"),1, 1), new Object[]{"YYY", "YXY", "YYY",'Y',(new ItemStack(GameRegistry.findItem("appliedenergistics2", "item.ItemMultiMaterial"),1)), 'X',(new ItemStack(GameRegistry.findItem("IC2", "itemDust2"),1, 2)) });
+		
 		
 	}
 
