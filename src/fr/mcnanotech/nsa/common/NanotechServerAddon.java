@@ -23,6 +23,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 @Mod(modid = NanotechServerAddon.MODID, name = "Nanotech Server Addon", version = "@VERSION@")
@@ -35,7 +36,7 @@ public class NanotechServerAddon
 	public static Block hyperCrystalizer;
 
 	@Instance(MODID)
-	public static NanotechServerAddon instence;
+	public static NanotechServerAddon instance;
 
 	@SidedProxy(clientSide = "fr.mcnanotech.nsa.proxy.ClientProxy", serverSide = "fr.mcnanotech.nsa.proxy.CommonProxy")
 	public static CommonProxy proxy;
@@ -54,6 +55,7 @@ public class NanotechServerAddon
 	@EventHandler
 	public void init(FMLInitializationEvent event)
 	{
+	    NetworkRegistry.INSTANCE.registerGuiHandler(this.instance, new NSAGuiHandler());
 		GameRegistry.registerTileEntity(TileEntityHyperCrystalizer.class, MODID + "HyperCrystalizer");
 		GameRegistry.registerWorldGenerator(new WorldGenerator(), 0);
 		if(isICLoaded)
@@ -61,6 +63,8 @@ public class NanotechServerAddon
 			this.loadIC2();
 		}
 		GameRegistry.addRecipe(IC2Items.getItem("reactorCoolantSimple"), new Object[]{" X ", "XcX", " X ",'X', IC2Items.getItem("platetin"), 'c', IC2Items.getItem("waterCell")});
+		GameRegistry.addRecipe(new ItemStack(GameRegistry.findItem("appliedenergistics2", "item.ItemMultiMaterial"),1, 1), new Object[]{"   ", " X ", "   ",'X',Blocks.cobblestone});
+		
 	}
 
 	public void loadIC2()
