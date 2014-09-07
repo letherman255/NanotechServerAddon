@@ -67,7 +67,7 @@ public class NanotechServerAddon
 		GameRegistry.addRecipe(new ItemStack(GameRegistry.findItem("appliedenergistics2", "item.ItemMultiMaterial"),1, 22), new Object[]{"WYW", "YXY", "WYW",'Y',(new ItemStack(GameRegistry.findItem("appliedenergistics2", "item.ItemMultiMaterial"),1 , 5)), 'X',(new ItemStack(Items.gold_ingot,1)),'W',(new ItemStack(Items.redstone, 1)) });
 		GameRegistry.addRecipe(new ItemStack(GameRegistry.findItem("appliedenergistics2", "item.ItemMultiMaterial"),1, 24), new Object[]{"WYW", "YXY", "WYW",'Y',(new ItemStack(GameRegistry.findItem("appliedenergistics2", "item.ItemMultiMaterial"),1 , 5)), 'X',(new ItemStack(Items.diamond,1)),'W',(new ItemStack(Items.redstone, 1)) });
 		GameRegistry.addRecipe(new ItemStack(GameRegistry.findItem("appliedenergistics2", "item.ItemMultiMaterial"),1, 23), new Object[]{"WYW", "YXY", "WYW",'Y',(new ItemStack(GameRegistry.findItem("appliedenergistics2", "item.ItemMultiMaterial"),1 , 5)), 'X',(new ItemStack(Items.quartz,1)),'W',(new ItemStack(Items.redstone, 1)) });
-		GameRegistry.addRecipe(new ItemStack(Blocks.sticky_piston), new Object[]{"X  ", "Y  ", "   ",'X', new ItemStack(GameRegistry.findItem("IC2", "itemRubber")), 'Y', Blocks.piston});
+		GameRegistry.addRecipe(new ItemStack(Blocks.sticky_piston), new Object[]{"X  ", "Y  ", "   ",'X', IC2Items.getItem("rubber"), 'Y', Blocks.piston});
 		
 		GameRegistry.addShapelessRecipe(new ItemStack(GameRegistry.findItem("appliedenergistics2", "item.ItemMultiMaterial"), 2, 7), new Object[]{(new ItemStack(GameRegistry.findItem("appliedenergistics2", "item.ItemMultiMaterial"),8, 1)), (new ItemStack(Items.quartz, 1)), (new ItemStack(Items.redstone, 1))});
 		
