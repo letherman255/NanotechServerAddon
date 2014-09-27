@@ -1,5 +1,7 @@
 package fr.mcnanotech.nsa.common;
 
+import javax.swing.text.TabableView;
+
 import fr.mcnanotech.nsa.common.tileentity.TileEntityHyperCrystalizer;
 import fr.mcnanotech.nsa.proxy.CommonProxy;
 import ic2.api.item.IC2Items;
@@ -34,6 +36,7 @@ public class NanotechServerAddon
 	public static boolean isICLoaded;
 	public static Block overworldQuartz;
 	public static Block hyperCrystalizer;
+	public static Block basaltPaver;
 
 	@Instance(MODID)
 	public static NanotechServerAddon instance;
@@ -47,8 +50,10 @@ public class NanotechServerAddon
 		proxy.registerRender();
 		overworldQuartz = new OverWorldQuartz(Material.rock).setBlockName("overWorldQuartz").setHardness(3.0F).setResistance(5.0F).setCreativeTab(CreativeTabs.tabBlock).setBlockTextureName(MODID + ":overWorldQuartz");
 		hyperCrystalizer = new HyperCrystalizer(Material.iron).setBlockName("hyperCrystalizer").setHardness(3.0F).setResistance(5.0F).setCreativeTab(CreativeTabs.tabRedstone);
+		basaltPaver = new BasaltPaver(Material.rock).setBlockName("basaltPaver").setHardness(1.5F).setResistance(10.0F).setCreativeTab(CreativeTabs.tabBlock).setBlockTextureName(MODID + ":basaltpaver");
 		GameRegistry.registerBlock(overworldQuartz, "overWorldQuartz");
 		GameRegistry.registerBlock(hyperCrystalizer, "hyperCrystalizer");
+		GameRegistry.registerBlock(basaltPaver, "BasaltPaver");
 		isICLoaded = Loader.isModLoaded("IC2");
 	}
 
@@ -70,6 +75,7 @@ public class NanotechServerAddon
 		GameRegistry.addRecipe(new ItemStack(Blocks.sticky_piston), new Object[]{"X  ", "Y  ", "   ",'X', IC2Items.getItem("rubber"), 'Y', Blocks.piston});
 		
 		GameRegistry.addShapelessRecipe(new ItemStack(GameRegistry.findItem("appliedenergistics2", "item.ItemMultiMaterial"), 2, 7), new Object[]{(new ItemStack(GameRegistry.findItem("appliedenergistics2", "item.ItemMultiMaterial"),8, 1)), (new ItemStack(Items.quartz, 1)), (new ItemStack(Items.redstone, 1))});
+		GameRegistry.addShapelessRecipe(new ItemStack(basaltPaver),  new Object[]{(new ItemStack(GameRegistry.findBlock("ProjRed|Exploration", "projectred.exploration.stone"),1,3))});
 		
 		GameRegistry.addSmelting(new ItemStack(GameRegistry.findItem("appliedenergistics2", "item.ItemMultiMaterial"),1, 1), new ItemStack(GameRegistry.findItem("appliedenergistics2", "item.ItemMultiMaterial"),1, 10), 1);
 		
