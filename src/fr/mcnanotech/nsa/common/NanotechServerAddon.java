@@ -37,6 +37,7 @@ public class NanotechServerAddon
 	public static Block overworldQuartz;
 	public static Block hyperCrystalizer;
 	public static Block basaltPaver;
+	public static Item plug;
 
 	@Instance(MODID)
 	public static NanotechServerAddon instance;
@@ -51,9 +52,13 @@ public class NanotechServerAddon
 		overworldQuartz = new OverWorldQuartz(Material.rock).setBlockName("overWorldQuartz").setHardness(3.0F).setResistance(5.0F).setCreativeTab(CreativeTabs.tabBlock).setBlockTextureName(MODID + ":overWorldQuartz");
 		hyperCrystalizer = new HyperCrystalizer(Material.iron).setBlockName("hyperCrystalizer").setHardness(3.0F).setResistance(5.0F).setCreativeTab(CreativeTabs.tabRedstone);
 		basaltPaver = new BasaltPaver(Material.rock).setBlockName("basaltPaver").setHardness(1.5F).setResistance(10.0F).setCreativeTab(CreativeTabs.tabBlock).setBlockTextureName(MODID + ":basaltpaver");
+		plug = new Plug().setUnlocalizedName("plug").setCreativeTab(CreativeTabs.tabMisc).setTextureName(MODID + ":plug");
+		
 		GameRegistry.registerBlock(overworldQuartz, "overWorldQuartz");
 		GameRegistry.registerBlock(hyperCrystalizer, "hyperCrystalizer");
 		GameRegistry.registerBlock(basaltPaver, "BasaltPaver");
+		GameRegistry.registerItem(plug, "Plug");
+		
 		isICLoaded = Loader.isModLoaded("IC2");
 	}
 
@@ -76,6 +81,7 @@ public class NanotechServerAddon
 		
 		GameRegistry.addShapelessRecipe(new ItemStack(GameRegistry.findItem("appliedenergistics2", "item.ItemMultiMaterial"), 2, 7), new Object[]{(new ItemStack(GameRegistry.findItem("appliedenergistics2", "item.ItemMultiMaterial"),8, 1)), (new ItemStack(Items.quartz, 1)), (new ItemStack(Items.redstone, 1))});
 		GameRegistry.addShapelessRecipe(new ItemStack(basaltPaver),  new Object[]{(new ItemStack(GameRegistry.findBlock("ProjRed|Exploration", "projectred.exploration.stone"),1,3))});
+		GameRegistry.addShapelessRecipe(new ItemStack(plug), new Object[]{new ItemStack(Blocks.cobblestone)});
 		
 		GameRegistry.addSmelting(new ItemStack(GameRegistry.findItem("appliedenergistics2", "item.ItemMultiMaterial"),1, 1), new ItemStack(GameRegistry.findItem("appliedenergistics2", "item.ItemMultiMaterial"),1, 10), 1);
 		
