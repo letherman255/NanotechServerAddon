@@ -84,7 +84,7 @@ public class NanotechServerAddon
 		GameRegistry.addShapelessRecipe(new ItemStack(plug), new Object[]{new ItemStack(Blocks.cobblestone)});
 		
 		GameRegistry.addSmelting(new ItemStack(GameRegistry.findItem("appliedenergistics2", "item.ItemMultiMaterial"),1, 1), new ItemStack(GameRegistry.findItem("appliedenergistics2", "item.ItemMultiMaterial"),1, 10), 1);
-		
+		GameRegistry.addSmelting(new ItemStack(Items.rotten_flesh), new ItemStack(Items.leather), 0.5f);
 		
 	}
 
