@@ -17,6 +17,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraftforge.common.MinecraftForge;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -65,6 +66,7 @@ public class NanotechServerAddon
 	@EventHandler
 	public void init(FMLInitializationEvent event)
 	{
+	    MinecraftForge.EVENT_BUS.register(new fr.mcnanotech.nsa.common.event.EventHandler());
 	    NetworkRegistry.INSTANCE.registerGuiHandler(this.instance, new NSAGuiHandler());
 		GameRegistry.registerTileEntity(TileEntityHyperCrystalizer.class, MODID + "HyperCrystalizer");
 		GameRegistry.registerWorldGenerator(new WorldGenerator(), 0);
@@ -93,7 +95,7 @@ public class NanotechServerAddon
 		Recipes.macerator.addRecipe(new RecipeInputItemStack(new ItemStack(Blocks.quartz_ore)), null, new ItemStack(Items.quartz, 5));
 		Recipes.macerator.addRecipe(new RecipeInputItemStack(new ItemStack(overworldQuartz)), null, new ItemStack(Items.quartz, 5));
 	}
-	
+
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event)
 	{
